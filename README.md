@@ -1,6 +1,108 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 4
+Todays agenda
+    1. Arrays
+    2. Operators
+    3. Conditional statement
+        3.1 if, else
+        3.2 switch
+        3.3 ternery operator
+    4. Create a web page and include JS
+        1. multiple ways to include js in a web page
+        2. placeholder for javascript
+        3. order in whihc javascript is loaded
+
+    ### Array
+    A collection of elements. Elements can be of any type
+
+    var numbers = [1,1,2,3,5,8];
+
+    ### operators
+
+    operands
+    operators
+
+    var x;
+
+    var y = 20;
+
+    y -> operand
+    = -> operator (assignment operator)
+
+    types of operators
+        - based on the number of operands they work with
+         unary operators
+         binary
+         ternary
+    
+    precedence of operators
+
+    1 + 3 + 3 * 4 / 3 = ? based on the operator precendence
+
+    Assignment operators
+    =   
+
+    a = a + 5; // a += 5; // -=, *=, /= 
+
+    &   - ??
+    &&  - ??
+
+    Comparison operators
+    ==      equals to
+    ===     strict equal
+    != 
+    !== 
+
+    Arithmetic operator
+    +, -, *, /, %
+    ++ increment
+    -- decrement
+        post increment/decrement
+        pre increment/dcrement
+
+    1. swap two number without using a third variable?
+        var a = 10;
+        var b = 20;
+        var tmp = a; // temp or third variable
+        a = b;
+        b= tmp;
+
+        // how many ways are there to solve the above problem?
+        // which will the most efficient one?
+
+    Bitwise Operators
+        &   AND     if both the bits are 1 = output will be 1
+        |   OR      if any bit is 1 = output will be 1
+        ^   XOR     if different = output will be 1 (caret)
+        ~   NOT     negation  0 to 1 and 1  tp 0    (tilde)
+
+        a = 3 = 011
+        b = 4 = 100
+        ---------------
+            AND 000 0
+            OR  111 7
+            ^   111 7
+        ----------------
+        ~a = 011 -> 100 = -4
+
+        a << 1; 011 << 1; => 110 = 6
+        a >> 1; 011 >> 1; => 001 = 1
+
+
+    Logical operators
+        AND     &&  if both the experssions return true - true
+        OR      ||  if any expression returns true - true
+        NOT     !   oppostive of the expression
+
+    String concatenation
+        + plus
+
+    Ternary operators??
+    
+
+    
 ## Day 3
 Recap -
     statement
