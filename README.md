@@ -2,17 +2,49 @@
 Thruskills MERN stack training Apr 2020
 
 ## Day 4
+Today's agenda
+
+    1. Operators
+    2. Create a web page and include JS (client side JS)
+        2.1. multiple ways to include js in a web page
+        2.2. placeholder for javascript
+            head
+            body 
+            both --- very often
+        2.3. order in which javascript is loaded
+            main.js
+            main1.js
+
+    3. Conditional statement
+        2.1 if, else
+        2.2 switch
+        3.3 ternery operator
+
+    Operators
+    ### Ternary operator
+        (experssion) ? val1 : val2;
+    
+    ### comma 
+
+    ### unary
+
+        delete
+        typeof
+        void
+
+    ### Relational
+        instanceof
+    
+    ### precedence
+
+
+
+
+## Day 4
 Todays agenda
     1. Arrays
     2. Operators
-    3. Conditional statement
-        3.1 if, else
-        3.2 switch
-        3.3 ternery operator
-    4. Create a web page and include JS
-        1. multiple ways to include js in a web page
-        2. placeholder for javascript
-        3. order in whihc javascript is loaded
+    
 
     ### Array
     A collection of elements. Elements can be of any type
@@ -99,10 +131,6 @@ Todays agenda
     String concatenation
         + plus
 
-    Ternary operators??
-    
-
-    
 ## Day 3
 Recap -
     statement
