@@ -1,7 +1,114 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
-## Day 4
+## Day  6
+
+    1. Conditional statements
+        - if, else
+        - switch
+        - ternery operator
+    2. Looping statement
+        for
+        while
+        do while
+
+// block
+{
+    // a block of code
+    var i = 20;
+
+    ...
+    ..
+}
+
+if (condition){
+    // true - this block run
+}
+
+
+if (condition){
+    // true - this block runs
+}else{
+    // false - this block of code will run
+}
+
+// 1-7
+
+1 = monday
+2 = tuesday
+...
+...
+
+// Nested if else
+var day;
+if(day == 1){
+    console.log('Monday is here')
+}else if(day == 3){
+    console.log('Wednesday')
+}else if(day == 5){
+    console.log('Friday')
+}else{
+    console.log('some other day')
+}
+
+## switch
+condition
+multiple cases - outcomes of the condition
+
+var day;
+switch(day){
+    // expression may return number, string, boolean
+    case 1:
+        console.log('Monday')
+        break;
+    case 2:
+        console.log('Tuesday')
+        break;
+    case 3:
+        console.log('Wednesday')
+        break;
+    case 4:
+        console.log('Thursday')
+        break;
+    case 5:
+        console.log('Friday')
+        break;
+    case 6:
+        console.log('Saturday')
+        break;
+    case 7:
+         console.log('Sunday')
+        break;
+    default:
+        console.log('Invalid day')
+}   
+
+## Loops
+run some staments again and again based on certain conditions - looping
+
+for - standard for loop
+for(initializer; exit condition; final expression){
+    // block of code that runs
+}
+
+while ()
+// initializer
+var i=0;
+while(exit condition){
+    // while block
+
+    final expression
+}
+
+
+do{
+    console.log('hi')
+} while(exit condition)
+
+break;
+continue;
+
+## Day 5
 Today's agenda
 
     1. Operators
@@ -14,11 +121,6 @@ Today's agenda
         2.3. order in which javascript is loaded
             main.js
             main1.js
-
-    3. Conditional statement
-        2.1 if, else
-        2.2 switch
-        3.3 ternery operator
 
     Operators
     ### Ternary operator
@@ -36,8 +138,6 @@ Today's agenda
         instanceof
     
     ### precedence
-
-
 
 
 ## Day 4
