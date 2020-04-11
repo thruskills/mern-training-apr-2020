@@ -1,10 +1,126 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 7
+    1. Function
+        Built-in browser Function
+        Function versus methods
+        Custom Function
+        Invoking Function
+        Anonymous Function
+        Function parameters
+            Call by value
+            Call by reference
+        Scope of the variable 
+            1. Global scope (window)
+                var x;
+            2. Function scope
+                function add(){
+                    // function scope
+                }
+            3. Block level scope
+                function oddeven(number){
+                    var rem = number % 2;
+                    if(rem == 0){
+                        // define a variable in block level scope
+                        let even = true;
+                    }
+                    return even;
+                }
+        Function inside a function
+
+        trim
+        charAt
+        toString
+
+        console.log()
+        document document.querySelector('h1')
+        alert()
+
+        methods???
+
+        function : reusable piece of code which does somoe specific task
+
+        var a;
+        var b;
+        var sum = a + b;
+        var sq = sum * sum;
+
+
+        ....
+        ...
+
+        var a;
+        var b;
+        var sum = a+b;
+        var sq = sum * sum;
+
+        // basic syntax of a function
+        function addSquare(a, b){
+            return (a + b) * (a + b);
+        }
+
+        var x;
+        var y;
+        var sum = addSquare(x,y);
+
+        var p;
+        var q;
+        var sum = addSquare(p,q);
+
+        // functions
+        1. repetitive task is wrapped inside a function
+        2. reuable piece of code
+        3. code will be more maintanable
+
+        // function is the keyword
+        // add is the name of the function
+        // number1 and number2 .... ???
+
+        function add(number1, number2){
+            // inside the function body
+            var sum = number1 + number2;
+            return sum;
+        } 
+        // generate a random number 
+
+        function random(){
+            return Math.random()
+        }
+
+        1. Call by value
+        2. Call by reference
+
+        Paramters - function declaration
+        Arguments - function invocation
+
+        Function inside a function
+        1. you can always call a function fromo otherr function.... 
+        2. you can define a function inside a function 
+
+    2. Event
+
+    3 ways to handle the events
+        1. event handler properties
+            btn.onclick
+        2. inline event handler
+            <button id="btn" onclick="changeBg();">
+        3. Add/Remove Event Listners
+            
+
+    // 
+    var array = [];
+
+    array.push(20);
+    // push - is a function/ method (Array class)
+
+    alert()
+    console.log() // method
+
 ## Day  6
 
     1. Conditional statements
-        - if, else
+        - if, else, nested if else
         - switch
         - ternery operator
     2. Looping statement
