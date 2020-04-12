@@ -1,6 +1,73 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 8
+
+    Events
+        Event object
+        Default event handle
+        Prevent the default event handler
+        Models for event handling
+            Capture
+            Bubble
+    First mini project
+        Number guessing game
+
+    Objects
+        ...
+        ...
+        ...
+
+    Event object
+        every event handler function can use the parameter
+        
+        function handleEvent(e){
+
+        }
+        the moment browser triggers the event, it will attach the event object to it
+    
+        The 16 divs example - where on click of the div we change its background color
+
+    Bubling and capturing
+        # slightly advance topic
+        # you may expect a few question on this during interrviews
+
+        Event bubbling
+
+            <div class="outer">
+                <div class="inner">
+                    <p></p>
+                </div>
+            </div>
+
+            Once an event is triggered for the inner elements it gets propogated to its parents
+            Propogatino happens from child to parent
+
+            If you do not want to propogate the events further, you can use below method
+                event.stopPropagation(); // for the inner element
+    
+    Number guessing game
+        1. System will generate a random number in the range of 1 - 100
+        2. You got 10 chances to guess the number
+        3. If you guess the correct number, show a "congratulations message"
+        4. If you guess the wrong number, show a hint "ligh or low"
+        5. Also display the numbers you have guessed in all the attempts
+
+    Object
+        What is an object?
+        function ( X )
+        data structure
+        data type - composite data type
+        it can contain multiple values
+            number
+            string
+        
+        // OOP
+        Class = It represnets a real world entity example, Person, Car, City
+        Objects = object is an instance of a class, example Manohar, abcd, Bangalore
+
+        Till JS ES6 (there was no notion of classes) all we had was object/s
+
 ## Day 7
     1. Function
         Built-in browser Function
@@ -106,6 +173,7 @@ Thruskills MERN stack training Apr 2020
         2. inline event handler
             <button id="btn" onclick="changeBg();">
         3. Add/Remove Event Listners
+            btn.addEventListner('click', handleClick)
             
 
     // 

@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Event bubble and capture</title>
+        <style>
+            .outer {
+                width: 100%;
+                background-color: red;
+                height: 400px;
+                border: 1px solid Black;
+            }
+
+            .inner{
+                margin: auto;
+                width: 50%;
+                height: 200px;
+                background-color: royalblue;
+            }
+            
+            p{
+                top: 0;
+                margin: auto;
+                text-align: center;
+                background-color: tomato;
+                width: 50%;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="outer">
+            <div class="inner">
+                <p>
+                    Welcome to the text
+                </p>
+            </div>
+        </div>
+        <script src="event-bubble-capture.js"></script>
+    </body>
+</html>

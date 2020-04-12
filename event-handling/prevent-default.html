@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Prevent default</title>
+    </head>
+    <body>
+        <!-- forms 
+        
+            1. form has an action - where exactly it gets submitted
+            2. the form data get submitted using 2 methods
+                GET     
+                    data is sent in the request header
+                    you can see it in the URL as query parameters
+                    but this has a limitation, as header can accomodate less data
+                    is not secure as anyone can see the data in the URL
+                    ??
+                
+                POST
+                    data is sent in the request body
+                    you can not see this in request url
+                    it is safe and secure
+                    you can send large of data
+            3. on click of submit, broowser will automatically submit the form
+        -->
+        <form action="login.html">
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name"/>
+
+            <br>
+            <label for="name">Location:</label>
+            <input type="text" name="location" id="location"/>
+
+            <br>
+            <p style="color:red;"></p>
+            
+            <button>Submit</button>
+
+        </form>
+        <script src="prevent-default.js"></script>
+    </body>
+</html>
