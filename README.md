@@ -1,6 +1,88 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 9
+    Objects
+        Basics of OOP
+        Constructors
+        Instances
+        Ways to create objects
+        Prototypes
+        Inheritance
+    
+    Programing paradigms
+
+    OOP languages
+        Real world entities are mapped with classes
+        bottom up
+            Java
+            C++
+    
+    Structured language
+        Code runs from top to bottom
+        top down approach
+            C
+
+    Scripting languages
+        Python
+        JavaScript
+
+    Characteristics of OOP
+        P   -   Polymorphism (Multiple forms - methds, objects)
+        I   -   Inheritance (Parent child kind of hierarchy oof classes & objects)
+        E   -   Encapsulatioon (Putting the related data and methods together)
+
+    Person
+        name
+        dob
+        address
+
+        Student
+            Attributes
+                rollNumber
+                branch
+                college
+            Methods
+                attendClass()
+                readBooks()
+                submitAssignments()
+                writeExam()
+        Teacher
+            Attributes
+                employeeId
+                branch
+                college
+            Methods
+                attendClass()
+                readBooks()
+                submitAssignments()
+                writeExam()
+
+    Animal
+       Attributes
+            color
+            breed
+            type
+            weight
+            height
+            age
+        Methods
+            eat()
+            speak()
+            walk()
+            run()
+            fly()
+            swim()
+            sleep()
+
+    Animal - Genric 
+        Dog - Specialized
+            bark()  
+        Cat
+
+    
+    
+
 ## Day 8
 
     Events
@@ -52,6 +134,13 @@ Thruskills MERN stack training Apr 2020
         3. If you guess the correct number, show a "congratulations message"
         4. If you guess the wrong number, show a hint "ligh or low"
         5. Also display the numbers you have guessed in all the attempts
+        6. Reset project
+            1. remove previous attempts 
+            2. re generate the random number
+            3. reinitialize the counter = 0
+            4. also have to hide the message (sucess or eror)
+            5. remove the reset button
+            6. focus on the input box
 
     Object
         What is an object?
