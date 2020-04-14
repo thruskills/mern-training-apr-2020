@@ -1,6 +1,45 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 10
+Object Prototypes
+
+JSON
+    JavaScript Object Notation
+    
+    JSON is a data exchange/interchange format
+
+    {
+        "key": value
+    }
+
+    // JSON OBJECT
+    {
+        "name":"manohar",
+        "age": 35
+    }
+
+    // JSON ARRAY
+    [
+        {
+            "name":"ankit",
+            "class":"js"
+        },{
+            "name":"madhuri",
+            "class":"js"
+        },{
+            "name":"aisha",
+            "class":"js"
+        }
+    ]
+
+    // js object to json string
+    JSON.stringify(object);
+
+    // creating js object from json string
+    JSON.parse(jsonString);
+
+
 ## Day 9
     Objects
         Basics of OOP
