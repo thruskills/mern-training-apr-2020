@@ -1,6 +1,32 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 11
+Different type of web API's
+    DOM
+    Fetching data (Ajax)
+    Third party API's
+        Google maps
+        Google analytics
+        Youtube videos
+    Draphics
+    Video & Audio
+    Client side storage
+        LocalStorage
+
+Client side API's
+    Browser 
+
+Server side
+    ?? 
+
+
+Object properties
+    Enumerable
+    Configurable
+    Writeable
+Inversion of Control (ioc)
+
 ## Day 10
 Object Prototypes
 
