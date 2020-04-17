@@ -1,6 +1,11 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 12
+    DOM
+    FETCH
+
+
 ## Day 11
 Different type of web API's
     DOM
@@ -19,7 +24,6 @@ Client side API's
 
 Server side
     ?? 
-
 
 Object properties
     Enumerable
