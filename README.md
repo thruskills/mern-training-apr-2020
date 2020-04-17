@@ -5,6 +5,62 @@ Thruskills MERN stack training Apr 2020
     DOM
     FETCH
 
+DOM ?
+Document Object Model
+HTML in your page
+    <html>
+        <head>
+            <title>Some DOM specific text</title>
+
+    it creates a structure (data structure) 
+        read the elements 
+        modify its values/attributes
+        move them
+        delete
+
+    Parent-child kind of relationship ??
+    Data structures??
+        Tree
+        Arrays
+        Map
+        Stack
+        Queue
+        List
+        Graph
+
+    Tree data structure
+        traverse easily
+
+    Structure your pages correctly
+
+    Tree
+        (elements) - Node
+    HTML - root
+        HEAD
+        BODY
+            #text:
+            DIV
+                #text:
+                IMG
+                    #text:
+                P
+                    #text:
+        #text:
+
+    DOM API's
+
+    window
+    navigator
+    document
+
+    document. ??
+    
+    document.getElementById()       - get element by id 
+    document.querySelector()        - selectors (tag, class name, id), it will get the first matching
+    document.querySelectorAll()     - it will fetch all the matching elements
+
+    
+
 
 ## Day 11
 Different type of web API's
