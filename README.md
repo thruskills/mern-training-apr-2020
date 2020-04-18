@@ -1,6 +1,15 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 13
+AJAX
+    XMLHttpRequest
+    Fetch
+    jQuery (third party library) -- it's very much in use in lot of places
+
+What is AJAX?
+
+
 ## Day 12
     DOM
     FETCH
@@ -58,9 +67,6 @@ HTML in your page
     document.getElementById()       - get element by id 
     document.querySelector()        - selectors (tag, class name, id), it will get the first matching
     document.querySelectorAll()     - it will fetch all the matching elements
-
-    
-
 
 ## Day 11
 Different type of web API's
