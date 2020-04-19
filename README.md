@@ -1,14 +1,65 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 14
+
+ES6 - ECMAScript 6 - ECMA ?
+    Official name for ES6 is ECMAScript 2015
+
+    ES5 - HTML5 (2009)
+
+    What ES6?
+    Why do we need?
+    Core features
+    
+    OOPS
+    ----
+    Classes
+    Inheritance
+    Modules
+
+    2020
+        The basic JS expectation anyone has in the market is of ES6
+    
+    variable
+    data types 
+        string - we have new ways to handle
+    operators
+    conditional 
+    looping
+    events
+    funtions - arrow function
+    objects
+        classes
+        inheritance
+    modules
+
+    Goal of ES6
+        be a better language
+        improve interoperation
+        versioning
+    
+    Features
+        Syntax
+        functionality
+        new features
+    
+    let - kind of replacement for var
+    const - only if the value doesn't change
+
+    Hi! My name is 'name' and I live in 'city';
+    Hi! My name is Manohar and I live in Bangalore.
+    
+
 ## Day 13
 AJAX
     XMLHttpRequest
     Fetch
     jQuery (third party library) -- it's very much in use in lot of places
 
-What is AJAX?
-
+AJAX Examples
+    1. create the project detail page - fetch the project detail from the API
+    2. Implement delte project method
 
 ## Day 12
     DOM
