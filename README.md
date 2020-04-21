@@ -1,6 +1,42 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 15
+ES6
+    Function expression --> method definition
+    OOP
+        es6 - constructor functions
+        Class - class
+
+        Subclassing or the inheritance
+
+        Error / exception handling works
+
+
+        lets think about working with exception handling this way
+        try{
+            // write code which can potentially throw some exception
+            ....
+            ...
+        }catch{
+            //
+            catch your exception
+            // handle it here
+            or you can throw from here
+        }
+
+        // anywhere you use api that throws some exception
+        // read from file and file does not exist I/O 
+        
+    Maps 
+        an object is like a map
+        {
+            key: value,
+            key1: value1
+        }
+
+        an object essentially is like an map
+
 ## Day 14
 
 ES6 - ECMAScript 6 - ECMA ?
