@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>Hello React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    
+    <!-- what is this text/babel -->
+
+    <script type="text/babel"> 
+        /* build a component to display hello world */
+
+        class Hello extends React.Component{
+            render(){
+                return <h1>Hello World!</h1>; // JSX
+
+                // let h1 = document.createElement('h1');
+                // h1.innerText = 'Hello World!';
+
+            }
+        }
+
+        // render the component and siplay it in the page
+        ReactDOM.render(
+            <Hello />,
+            document.getElementById('root')
+        );
+    
+    </script>
+</body>
+
+</html>

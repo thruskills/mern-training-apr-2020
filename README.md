@@ -1,6 +1,34 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 16
+React
+    1. JS library to build front end
+    2. Its based on components
+
+    Single page applications? 
+        We will create a single entry point
+        And the page gets loaded into the browser once
+        And depending on the user interactions, we refresh the page or the part of the page
+        We do not have to reload the page
+        example - gmail
+
+    Mobile apps
+        React + React Native (Hybrid)
+            1. Native Apps (Android - Java/Kotlin, iOS - Swift)
+            2. Hybrif Apps - JavaScript (React Native)
+
+    Create your first react app
+    ---------------------------
+    npx create-react-app my-first-app
+    cd my-first-app
+    npm start
+    localhost:3000 (by default it will lauch the browser)
+    
+    npm - is used to install the node modules
+    npx - ??
+
+
 ## Day 15
 ES6
     Function expression --> method definition
