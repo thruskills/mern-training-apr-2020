@@ -1,6 +1,79 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 18
+
+Since props are read only
+What if we want to change the data ?
+
+
+Children - special prop
+    <IconButton>Do something</IconButton>
+
+PropTypes
+    import -  PropTypes from 'prop-types'
+    propType property in the component
+
+        IconButton.propTypes = {
+            children: PropTypes.string.isRequired
+        }
+
+
+Props
+    Passing props
+    Receiving props
+    Destruc
+    Can we modify props
+    
+    Pure function??
+        
+        function add(a,b){
+            return a+b;
+        }
+
+        1. this function is not trying to change any of its imputs
+        2. it will always return the same result for the same input
+
+    Impure
+
+        function withdraw(account, amount){
+            account.total -= amount;
+        }
+
+
+
+## Day 17
+    create-react-app app-name
+        - it will create a new react project with name your provide
+        - the project will also create the directory and files required, it its a node based project 
+        
+        - public
+            index.html
+            *.css
+            *.jpg/ *.png
+            favicon.ico ?? 
+            ...
+        - src
+            App.css
+            App.js
+            index.css
+            index.js
+            ... 
+        - package.json
+        - README.md
+
+        npm start (this will start the project by default in port 3000)
+        index.js -> 
+
+
+        Components
+            App
+                Nav
+                    NavItem
+                        Can we pass some values to NAvItem ??
+
+
+
 ## Day 16
 React
     1. JS library to build front end

@@ -2,8 +2,15 @@ import React from 'react';
 import './Nav.css';
 import NavItem from './../NavItem/NavItem';
 
+const navItems = [
+    {link:'', title:'', active:''},
+    {link:'', title:'', active:''},
+    {link:'', title:'', active:''},
+    {link:'', title:'', active:''}
+];
+
 // component name starts always with capital
-function Nav(){
+function Nav(props){
     return (
         <nav>
             <ul>

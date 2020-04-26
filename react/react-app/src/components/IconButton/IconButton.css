@@ -1,0 +1,15 @@
+.icon{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.icon img {
+    margin-top: 20px;
+}
+
+.icon span {
+    padding: 5px;
+}

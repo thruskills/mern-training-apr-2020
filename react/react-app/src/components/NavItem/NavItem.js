@@ -5,13 +5,12 @@ function upperCase(text){
     return text.toUpperCase();
 }
 
-function NavItem(props) {
-    const css = 'link ' +  props.active;
-    console.log(css);
+function NavItem({active, link, title}) {
+    const css = 'link ' + active;
     return(
         <li>
-            <a className={css} href={props.link}>
-                {upperCase(props.title)}
+            <a className={css} href={link}>
+                {upperCase(title)}
             </a>
         </li>
     )
