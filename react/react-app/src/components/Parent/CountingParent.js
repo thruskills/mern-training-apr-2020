@@ -16,9 +16,22 @@ class CountingParent extends React.Component {
         console.log('Child says', event);
         // every time this method is called
         // it updates the state using the setState
-        this.setState({
-            count: this.state.count + 1
+        
+        // this.setState({
+        //     count: this.state.count + 1
+        // }, function(){
+        //     console.log(this.state.count)
+        // });
+
+        // functional form of setState
+
+        this.setState((state, props) => {
+            return {
+                count: state.count + 1
+            }
         })
+        console.log(this.state.count)
+        
     }
 
     // we define a render method
