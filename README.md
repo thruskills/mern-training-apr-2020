@@ -1,6 +1,21 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 21
+Lifecycle methods
+
+
+## Day 20
+Input controls
+    1. controlled
+    2. uncontrolled
+
+
+## Day 19
+State
+Bootstrap
+
+
 ## Day 18
 
 Since props are read only

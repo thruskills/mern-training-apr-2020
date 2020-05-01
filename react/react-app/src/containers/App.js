@@ -1,15 +1,16 @@
 import React from 'react';
 import './App.css';
-import ControllerInput from '../components/Input/ControllerInput';
-import NonNumericComponent from '../components/Input/NonNumericComponent';
-import UnControllerInput from '../components/Input/UnControllerInput'
+import '../components/Lifecycle/LifecycleDemo';
+import LifecycleDemo from '../components/Lifecycle/LifecycleDemo';
+import ErrorCatcher from '../components/Lifecycle/ErrorCatcher';
 
 function App() {
   return (
     <div>
-      <ControllerInput />
-      <NonNumericComponent />
-      <UnControllerInput />
+      {/* We want error catcher componet to catch any errorr that lifecycle demo component will throw */}
+      <ErrorCatcher>
+        <LifecycleDemo />
+      </ErrorCatcher>
     </div>
   );
 }
