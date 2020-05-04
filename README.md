@@ -1,6 +1,21 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 22
+    Routing in React
+
+    URL                                 Route / Path
+    -------------------------------------------------
+    http://example.com                  /                   root
+    http://example.com/projects         /projects
+    http://example.com/projects/1       /projects/1
+    http://example.com/projects/2       /projects/2
+    http://example.com/projects/3       /projects/3
+    http://example.com/contact          /contact            (submitting the form data)
+    http://example.com/about            /about
+
+
+
 ## Day 21
 Lifecycle methods
 
