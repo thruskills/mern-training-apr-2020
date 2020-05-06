@@ -1,12 +1,32 @@
 import React from "react";
 import {Container, Row, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+const data = {
+    "number-guessing-game": {
+        name: "Number Guessing Game",
+        image: "https://www.mypofo.com/images/projects/number-guessing-game.png",
+        category: 'js'
+    },
+    "js-console": {
+        name: "JS Console",
+        image: "https://www.mypofo.com/images/projects/js-console.png",
+        category: 'html'
+    },
+    "image-gallery": {
+        name: "Image Gallery",
+        image: "https://www.mypofo.com/images/projects/image-gallery.png",
+        category: 'js'
+    }
+}
 
 function Projects(){
     return (
 
         <Container>
             <h2>Projects</h2>
+            <div>
+                
+            </div>
             <Row>
                 <Col>
                     <p>Number Guessing Game</p>

@@ -1,11 +1,11 @@
 import React from 'react';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-import {Container, Row, Col} from 'react-bootstrap';
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
+import {Container} from 'react-bootstrap';
 
 import Index from './Index';
-import Projects from './Projects';
-import ProjectDetail from './ProjectDetail';
+import Topics from './Topics';
 import Contact from './Contact';
+import NoMatch from './NoMatch';
 
 function RouterApp(){
     return(
@@ -17,7 +17,7 @@ function RouterApp(){
                     </li>
 
                     <li>
-                        <Link to="/projects">Projects</Link>
+                        <Link to="/topics">Topics</Link>
                     </li>
 
                     <li>
@@ -29,12 +29,14 @@ function RouterApp(){
                     </li>
                 </ul>
             </nav>
-
+        
             <Container>
-                <Route path="/" exact component={Index} />
-                <Route path="/projects"  component={Projects} />
-                <Route path="/projects/:slug" component={ProjectDetail} />
-                <Route path="/contact" component={Contact} />
+                <Switch>
+                    <Route path="/" exact component={Index} />
+                    <Route path="/topics" component={Topics} />                
+                    <Route path="/contact" component={Contact} />
+                    <Route component={NoMatch} />
+                </Switch>
             </Container>
             
         </Router>

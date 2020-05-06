@@ -1,6 +1,15 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 24
+    1. 404 - NoMatch
+    2. Route protection / auth based route
+        
+    3. Get into the AJAX API calls?
+
+## Day 23
+    Nested routes
+
 ## Day 22
     Routing in React
 
