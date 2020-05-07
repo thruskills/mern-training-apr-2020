@@ -2,12 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import AuthExample from './components/routing/AuthDemo';
-import RouterApp from './components/routing/RouterApp';
-
+import Projects from './components/api/Projects';
 ReactDOM.render(
   <React.StrictMode>
-    <AuthExample />
+    <Projects />
   </React.StrictMode>,
   document.getElementById('root')
 );
