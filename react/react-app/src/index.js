@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Projects from './components/api/Projects';
+import RouterApp from './components/routing/RouterApp';
+
 ReactDOM.render(
   <React.StrictMode>
-    <Projects />
+    <RouterApp />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -46,6 +46,7 @@ class Projects extends React.Component{
         const projectCss = {
             margin: '10px',
             width: '32%',
+            minHeight: '300px',
             float: 'left',
             border: '1px solid #ccc',
             padding: '10px'

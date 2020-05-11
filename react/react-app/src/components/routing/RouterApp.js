@@ -3,7 +3,8 @@ import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 
 import Index from './Index';
-import Topics from './Topics';
+import Projects from  './Projects';
+import ProjectDetail from './ProjectDetail';
 import Contact from './Contact';
 import NoMatch from './NoMatch';
 
@@ -17,7 +18,7 @@ function RouterApp(){
                     </li>
 
                     <li>
-                        <Link to="/topics">Topics</Link>
+                        <Link to="/projects">Projects</Link>
                     </li>
 
                     <li>
@@ -33,7 +34,8 @@ function RouterApp(){
             <Container>
                 <Switch>
                     <Route path="/" exact component={Index} />
-                    <Route path="/topics" component={Topics} />                
+                    <Route path="/projects" exact component={Projects} /> 
+                    <Route path="/projects/:alias" component={ProjectDetail} />           
                     <Route path="/contact" component={Contact} />
                     <Route component={NoMatch} />
                 </Switch>

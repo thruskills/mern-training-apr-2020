@@ -1,30 +1,77 @@
 import React from 'react';
+import {Button} from 'react-bootstrap';
 
-const data = {
-    "number-guessing-game": {
-        name: "Number Guessing Game",
-        image: "https://www.mypofo.com/images/projects/number-guessing-game.png"
-    },
-    "js-console": {
-        name: "JS Console",
-        image: "https://www.mypofo.com/images/projects/js-console.png"
-    },
-    "image-gallery": {
-        name: "Image Gallery",
-        image: "https://www.mypofo.com/images/projects/image-gallery.png"
+class ProjectDetail extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+            detail: null
+        }
     }
-}
+    componentDidMount() {
+        fetch(`http://localhost:3030/projects/alias/${this.props.match.params.alias}`)
+        .then(res => res.json())
+        .then(
+            (result) => {
+                // set the state
+                this.setState({
+                    isLoaded: true,
+                    detail: result
+                });
+            },
+            (error) => {
+                this.setState({
+                    isLoaded: true,
+                    error
+                });
+            }
+        )
+    }
 
-function ProjectDetail({ match }){
-    let  projectSlug = match.params.slug;
-    let projectDetail = data[projectSlug];
-   
-    return (
-        <div>
-            <h1>{projectDetail.name}</h1>
-            <img className="card-img-top" src={projectDetail.image} style={{borderBottom:"1px solid #e9ecef"}} />
-        </div>
-    )
+    deleteProject = (event) => {
+        const url = `http://localhost:3030/projects/${this.state.detail._id}`
+        fetch(url, {method: 'DELETE'})
+        .then(res => res.json())
+        .then(
+            (result) => {
+                // once we delete this page? what should we do? redirect to home/project list...
+                console.log(result)
+                this.setState({
+                    isLoaded: true,
+                    detail: null
+                })
+            },
+            (error) => {
+                console.log(error)
+            }
+        )
+    }
+
+    render(){
+        const {error, isLoaded, detail} = this.state;
+        if(error){
+            return <div>Something went wrong! {error}</div>
+        }else if(!isLoaded){
+            return <div>Loading...</div>
+        }else if(detail !== null){
+            return (
+                <div>
+                    <h1>{detail.name}</h1>
+                    <img src={detail.coverImage} width="100%" alt={detail.name} />
+                    <br/><br />
+                    <p>
+                        {detail.description}
+                    </p>
+                    <hr />
+                    <Button variant="danger" onClick={this.deleteProject}>Delete Project</Button>
+                </div>
+            )
+        }else{
+            return <div>No content</div>
+        }
+    }
 }
 
 export default ProjectDetail;

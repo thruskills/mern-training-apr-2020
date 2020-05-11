@@ -21,6 +21,17 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET project by alias. */
+router.get('/alias/:alias', function(req, res, next) {
+  Project.findOne({alias: req.params.alias}, function(err, project){
+    if(err){
+        next(err)
+    }else if (project){
+      res.json(project);
+    }
+  });
+});
+
+/* GET project by id. */
 router.get('/:id', function(req, res, next) {
   Project.findOne({_id: req.params.id}, function(err, project){
     if(err){
