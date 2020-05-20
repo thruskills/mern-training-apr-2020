@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var cors = require('cors');
+const Contact = require('./model/contactModel');
 
 var projects = require('./routes/projects');
 
@@ -48,6 +49,26 @@ app.get('/', function (req, res) {
 });
 
 app.use('/projects', projects);
+app.post('/contact', (req,res) => {
+  /* Save Contact  data */
+
+  console.log(req.body);
+  var contact = req.body;
+  var contactModel = new Contact();
+
+  contactModel.name = contact.name;
+  contactModel.message = contact.message;
+  contactModel.email = contact.email;
+
+  contactModel.createAt = new Date();
+  contactModel.save(function(err, contact){
+      if(err){
+        next(err);
+      }else{
+        res.json(contact); 
+      }
+  });
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

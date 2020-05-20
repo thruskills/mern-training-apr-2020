@@ -1,6 +1,39 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 28
+    Forms are not easy to manage
+    change handler
+    submit handler
+    validation
+
+    validation email id
+        1. @ symbol
+        2. domainn name (abcd.com, xyz.in)
+        3.  [a-zA-Z0-9_.]@[a-zA-Z-0-9].[a-z]
+
+        4. regex for email validation
+
+        wee are just validating email
+
+        password
+            minn character 8
+        
+        a good library to handle forms
+
+    Formik comes into picture
+        - a library for handling forms
+
+    Yup 
+        - schema validation library
+        schema
+            {
+                "name":"manohar",
+                age:19,
+                location: "Bangalore"
+            }
+
+
 ## Day 24
     1. 404 - NoMatch
     2. Route protection / auth based route

@@ -1,0 +1,10 @@
+pagination
+    list the page numbers
+        page = 1
+        page size  = 10
+infinite scroll
+
+How that works at the backend
+
+    http://localhost:3030/projects?pno=1&psize=10&filter=matrix&fields=name,id,image
+    
