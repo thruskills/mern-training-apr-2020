@@ -1,6 +1,49 @@
 # mern-training-apr-2020
 Thruskills MERN stack training Apr 2020
 
+## Day 32
+NodeJS
+- Core Nodejs
+    - Introduction
+    - NodeJS certification - official nodejs certification OpenJS
+        NAD - core node ()
+        SD - ( api )
+- Basic of Nodejs
+    HTTP
+    FS
+    Buffer
+    Stream
+- Express (Famework)  - web application (server side rendered)
+- MongoDB (how do you setup mongodb - locally, free ddb instance : - 500mb free storage)
+- Mongoose (ODDM - what is odm - Hibernate)
+- Lot of otherr npm modules 
+- API Doc - Swagger UI
+
+JavaScript Engine
+    Browser     JS Engine
+    ----------------------
+    Chrome      V8
+    Firefox     Spider Monkey
+    Explorer    Chakra
+    Edge        ???
+
+Theading    
+    Processing multiple tasks simultenaously
+
+Process - multi  processing
+
+Java/J2EE (run a process) - multi threading
+    - Thread 1
+    - Thread 2
+    _ Thread 3
+
+NodeJs - event driven (events - JS)
+    - Single threaded model (very light)
+    - Thenhow can it run multiple tasks at the same time?
+
+Nodjs is extremely fast in handling the i/o ?
+
+
 ## Day 28
     Forms are not easy to manage
     change handler
