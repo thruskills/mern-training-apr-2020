@@ -1,50 +1,237 @@
 # mern-training-apr-2020
+
 Thruskills MERN stack training Apr 2020
 
+## Day 41
+
+Basics of REST API's
+
+RE Representational
+S State
+T Transfer
+
+    API (Application Program Interface)
+    Resources
+
+Portfolio
+project
+contact
+
+We make use of HTTP protocol - to work with these resources
+
+### 1. Resource
+
+Action HTTP Methods (Verb)
+
+project create POST
+project get detail GET
+project update PUT
+project partially update PATCH //not use  
+project delete DELETE
+
+every instance is a resource
+project1
+project2
+project3
+project4
+
+plural - project - projects
+
+### 2. HTTP Methods -
+
+CREATE http://localhost:3000/api/projects POST - create a new project
+LIST http://localhost:3000/api/projects GET - list all the projects
+
+GET http://localhost:3000/api/projects/project1 GET - Get the project details
+UPDATE http://localhost:3000/api/projects/project1 PUT - update a project
+DELETE http://localhost:3000/api/projects/project1 DELETE - update a project
+
+### 3. HTTP Request/Response
+
+- Header
+
+  - url
+  - id/name is typically part of header
+  - Query parameters - http://localhost:3000/api/projects?page=3&size=10
+  - Path parameters - choose this convention
+  - GET http://localhost:3000/api/projects/project1/deactivate
+
+- Body
+  - body
+  - data in the body
+
+### 4. HTTP Status codes
+
+Series of codes (100, 200, 300, 400, 500) - wiki (homework)
+200 OK
+201 Created
+204 Update
+400 Client
+500 Server
+
+7-8 error codes (status)
+
+### 5. Content type (header - request, response)
+
+        Request
+
+Client ----------------------> Server
+Data How does i know what kind of data i'm suppose to handle??
+
+        Response
+
+Client <--------------------- Server
+
+Header 'Content-Type' application/json, text/html, image/png
+
+### 6. Always respond with JSON (error, success, data)
+
+### 7. Error handling ?????
+
+## Day 40
+
+Streams -
+Express ...
+
+/admin \*\*\* - accessible only for logged in users (admin user)
+
+    client  ----------------> req ------------> Server (here we have to check if logged in) .....?
+
+    /admin ->  (isLoggedIn) ->  admin
+
+    examples
+        1. check for login user
+        2. request logger (GA - )
+        3. check for something like content-type (JSON - sending you XML)
+
+// Stream ???
+-->
+ask user to upload an image
+--- save it in the DB
+--- reqest for the image (read -> stream ...)
+
+## Day 39
+
+Views (UI ) -
+API (backend)
+
+React
+(SPA...)
+Runs on the client side
+Its very fast (page will not reload)
+Routing dynamic
+Direct access to
+browser (window, document, navigator)
+events
+
+Express
+(Multiple pages)
+/about
+/contact
+/projects
+/project/:slug
+Runs on the server side
+view (.hbs) -> html -> sent to the browser
+// cache the out
+html is generated in the server - the generated html is sent back to client
+Every page is loaded from the server
+Routing static (upfront routes are defined)
+
+MERN ()
+front end - react - NextJS, vue - NuxtJS, angular ....
+api'server - MEN (Mongo - Mongoose, Express, Node)
+
+ORM ? Object Relationn Model
+ODM ? Object Document Model
+
+Video streaming ?? - netflix.... / it reads a video file -> sends the data to client (mobile app, browser)
+--- chunks ()
+10000 100 100 100 100 ....
+
+https://github.com/airbnb/javascript
+
+## Day 36
+
+https://mnegi.com/photos?location=bangalore
+file:///Users/mnegi/Desktop/mern/mern-training-apr-2020/number-guessing/index.html
+
+https://mnegi.com:3001/
+
+https
+://
+mnegi.com
+/ photos
+?key=value
+
+http - protocol, default port - http: 80, https: 443
+{ protocol }://
+
+file:// - file protocol
+
+(mnegi.com == www.mnegi.com) - DNS (which will resolve this name into an IP)
+
+mnegi.com = domain name
+mnegi = domain
+.com = TLD(top level domain) - domain prefix.in.edu .....
+
+mnegi.com - one domain(main domain) -> one server or ip
+www.mnegi.com(sub domain) -> this may point to another server or ip
+
+you need to configure it the way you want it to work (redirection)
+
+/ photos - path / url
+/ photos ? name = manohar & location=bangalore Query parameters(query params)
+/ photos / { nature }
+/ photos - path or url - path parameters(path params)
+
+req.url == path
+how to read path params
+how to read query params
+
 ## Day 32
+
 NodeJS
+
 - Core Nodejs
-    - Introduction
-    - NodeJS certification - official nodejs certification OpenJS
-        NAD - core node ()
-        SD - ( api )
+  - Introduction
+  - NodeJS certification - official nodejs certification OpenJS
+    NAD - core node ()
+    SD - ( api )
 - Basic of Nodejs
-    HTTP
-    FS
-    Buffer
-    Stream
-- Express (Famework)  - web application (server side rendered)
+  HTTP
+  FS
+  Buffer
+  Stream
+- Express (Famework) - web application (server side rendered)
 - MongoDB (how do you setup mongodb - locally, free ddb instance : - 500mb free storage)
 - Mongoose (ODDM - what is odm - Hibernate)
-- Lot of otherr npm modules 
+- Lot of otherr npm modules
 - API Doc - Swagger UI
 
 JavaScript Engine
-    Browser     JS Engine
-    ----------------------
-    Chrome      V8
-    Firefox     Spider Monkey
-    Explorer    Chakra
-    Edge        ???
+Browser JS Engine
 
-Theading    
-    Processing multiple tasks simultenaously
+---
 
-Process - multi  processing
+Chrome V8
+Firefox Spider Monkey
+Explorer Chakra
+Edge ???
 
-Java/J2EE (run a process) - multi threading
-    - Thread 1
-    - Thread 2
-    _ Thread 3
+Theading  
+ Processing multiple tasks simultenaously
 
-NodeJs - event driven (events - JS)
-    - Single threaded model (very light)
-    - Thenhow can it run multiple tasks at the same time?
+Process - multi processing
+
+Java/J2EE (run a process) - multi threading - Thread 1 - Thread 2
+\_ Thread 3
+
+NodeJs - event driven (events - JS) - Single threaded model (very light) - Thenhow can it run multiple tasks at the same time?
 
 Nodjs is extremely fast in handling the i/o ?
 
-
 ## Day 28
+
     Forms are not easy to manage
     change handler
     submit handler
@@ -61,13 +248,13 @@ Nodjs is extremely fast in handling the i/o ?
 
         password
             minn character 8
-        
+
         a good library to handle forms
 
     Formik comes into picture
         - a library for handling forms
 
-    Yup 
+    Yup
         - schema validation library
         schema
             {
@@ -76,17 +263,19 @@ Nodjs is extremely fast in handling the i/o ?
                 location: "Bangalore"
             }
 
-
 ## Day 24
+
     1. 404 - NoMatch
     2. Route protection / auth based route
-        
+
     3. Get into the AJAX API calls?
 
 ## Day 23
+
     Nested routes
 
 ## Day 22
+
     Routing in React
 
     URL                                 Route / Path
@@ -99,52 +288,46 @@ Nodjs is extremely fast in handling the i/o ?
     http://example.com/contact          /contact            (submitting the form data)
     http://example.com/about            /about
 
-
-
 ## Day 21
+
 Lifecycle methods
 
-
 ## Day 20
-Input controls
-    1. controlled
-    2. uncontrolled
 
+Input controls 1. controlled 2. uncontrolled
 
 ## Day 19
+
 State
 Bootstrap
-
 
 ## Day 18
 
 Since props are read only
 What if we want to change the data ?
 
-
 Children - special prop
-    <IconButton>Do something</IconButton>
+<IconButton>Do something</IconButton>
 
 PropTypes
-    import -  PropTypes from 'prop-types'
-    propType property in the component
+import - PropTypes from 'prop-types'
+propType property in the component
 
         IconButton.propTypes = {
             children: PropTypes.string.isRequired
         }
 
-
 Props
-    Passing props
-    Receiving props
-    Destruc
-    Can we modify props
-    
-    Pure function??
-        
-        function add(a,b){
-            return a+b;
-        }
+Passing props
+Receiving props
+Destruc
+Can we modify props
+
+Pure function??
+
+function add(a,b){
+return a+b;
+}
 
         1. this function is not trying to change any of its imputs
         2. it will always return the same result for the same input
@@ -155,30 +338,29 @@ Props
             account.total -= amount;
         }
 
-
-
 ## Day 17
+
     create-react-app app-name
         - it will create a new react project with name your provide
-        - the project will also create the directory and files required, it its a node based project 
-        
+        - the project will also create the directory and files required, it its a node based project
+
         - public
             index.html
             *.css
             *.jpg/ *.png
-            favicon.ico ?? 
+            favicon.ico ??
             ...
         - src
             App.css
             App.js
             index.css
             index.js
-            ... 
+            ...
         - package.json
         - README.md
 
         npm start (this will start the project by default in port 3000)
-        index.js -> 
+        index.js ->
 
 
         Components
@@ -187,14 +369,11 @@ Props
                     NavItem
                         Can we pass some values to NAvItem ??
 
-
-
 ## Day 16
-React
-    1. JS library to build front end
-    2. Its based on components
 
-    Single page applications? 
+React 1. JS library to build front end 2. Its based on components
+
+    Single page applications?
         We will create a single entry point
         And the page gets loaded into the browser once
         And depending on the user interactions, we refresh the page or the part of the page
@@ -212,17 +391,17 @@ React
     cd my-first-app
     npm start
     localhost:3000 (by default it will lauch the browser)
-    
+
     npm - is used to install the node modules
     npx - ??
 
-
 ## Day 15
+
 ES6
-    Function expression --> method definition
-    OOP
-        es6 - constructor functions
-        Class - class
+Function expression --> method definition
+OOP
+es6 - constructor functions
+Class - class
 
         Subclassing or the inheritance
 
@@ -242,9 +421,9 @@ ES6
         }
 
         // anywhere you use api that throws some exception
-        // read from file and file does not exist I/O 
-        
-    Maps 
+        // read from file and file does not exist I/O
+
+    Maps
         an object is like a map
         {
             key: value,
@@ -256,14 +435,14 @@ ES6
 ## Day 14
 
 ES6 - ECMAScript 6 - ECMA ?
-    Official name for ES6 is ECMAScript 2015
+Official name for ES6 is ECMAScript 2015
 
     ES5 - HTML5 (2009)
 
     What ES6?
     Why do we need?
     Core features
-    
+
     OOPS
     ----
     Classes
@@ -272,12 +451,12 @@ ES6 - ECMAScript 6 - ECMA ?
 
     2020
         The basic JS expectation anyone has in the market is of ES6
-    
+
     variable
-    data types 
+    data types
         string - we have new ways to handle
     operators
-    conditional 
+    conditional
     looping
     events
     funtions - arrow function
@@ -290,42 +469,42 @@ ES6 - ECMAScript 6 - ECMA ?
         be a better language
         improve interoperation
         versioning
-    
+
     Features
         Syntax
         functionality
         new features
-    
+
     let - kind of replacement for var
     const - only if the value doesn't change
 
     Hi! My name is 'name' and I live in 'city';
     Hi! My name is Manohar and I live in Bangalore.
-    
 
 ## Day 13
-AJAX
-    XMLHttpRequest
-    Fetch
-    jQuery (third party library) -- it's very much in use in lot of places
 
-AJAX Examples
-    1. create the project detail page - fetch the project detail from the API
-    2. Implement delte project method
+AJAX
+XMLHttpRequest
+Fetch
+jQuery (third party library) -- it's very much in use in lot of places
+
+AJAX Examples 1. create the project detail page - fetch the project detail from the API 2. Implement delte project method
 
 ## Day 12
+
     DOM
     FETCH
 
 DOM ?
 Document Object Model
 HTML in your page
-    <html>
-        <head>
-            <title>Some DOM specific text</title>
 
-    it creates a structure (data structure) 
-        read the elements 
+<html>
+<head>
+<title>Some DOM specific text</title>
+
+    it creates a structure (data structure)
+        read the elements
         modify its values/attributes
         move them
         delete
@@ -366,43 +545,45 @@ HTML in your page
     document
 
     document. ??
-    
-    document.getElementById()       - get element by id 
+
+    document.getElementById()       - get element by id
     document.querySelector()        - selectors (tag, class name, id), it will get the first matching
     document.querySelectorAll()     - it will fetch all the matching elements
 
 ## Day 11
+
 Different type of web API's
-    DOM
-    Fetching data (Ajax)
-    Third party API's
-        Google maps
-        Google analytics
-        Youtube videos
-    Draphics
-    Video & Audio
-    Client side storage
-        LocalStorage
+DOM
+Fetching data (Ajax)
+Third party API's
+Google maps
+Google analytics
+Youtube videos
+Draphics
+Video & Audio
+Client side storage
+LocalStorage
 
 Client side API's
-    Browser 
+Browser
 
 Server side
-    ?? 
+??
 
 Object properties
-    Enumerable
-    Configurable
-    Writeable
+Enumerable
+Configurable
+Writeable
 Inversion of Control (ioc)
 
 ## Day 10
+
 Object Prototypes
 
 JSON
-    JavaScript Object Notation
-    
-    JSON is a data exchange/interchange format
+JavaScript Object Notation
+
+JSON is a data exchange/interchange format
 
     {
         "key": value
@@ -434,8 +615,8 @@ JSON
     // creating js object from json string
     JSON.parse(jsonString);
 
-
 ## Day 9
+
     Objects
         Basics of OOP
         Constructors
@@ -443,7 +624,7 @@ JSON
         Ways to create objects
         Prototypes
         Inheritance
-    
+
     Programing paradigms
 
     OOP languages
@@ -451,7 +632,7 @@ JSON
         bottom up
             Java
             C++
-    
+
     Structured language
         Code runs from top to bottom
         top down approach
@@ -509,13 +690,10 @@ JSON
             swim()
             sleep()
 
-    Animal - Genric 
+    Animal - Genric
         Dog - Specialized
-            bark()  
+            bark()
         Cat
-
-    
-    
 
 ## Day 8
 
@@ -536,12 +714,12 @@ JSON
 
     Event object
         every event handler function can use the parameter
-        
+
         function handleEvent(e){
 
         }
         the moment browser triggers the event, it will attach the event object to it
-    
+
         The 16 divs example - where on click of the div we change its background color
 
     Bubling and capturing
@@ -561,7 +739,7 @@ JSON
 
             If you do not want to propogate the events further, you can use below method
                 event.stopPropagation(); // for the inner element
-    
+
     Number guessing game
         1. System will generate a random number in the range of 1 - 100
         2. You got 10 chances to guess the number
@@ -569,7 +747,7 @@ JSON
         4. If you guess the wrong number, show a hint "ligh or low"
         5. Also display the numbers you have guessed in all the attempts
         6. Reset project
-            1. remove previous attempts 
+            1. remove previous attempts
             2. re generate the random number
             3. reinitialize the counter = 0
             4. also have to hide the message (sucess or eror)
@@ -584,7 +762,7 @@ JSON
         it can contain multiple values
             number
             string
-        
+
         // OOP
         Class = It represnets a real world entity example, Person, Car, City
         Objects = object is an instance of a class, example Manohar, abcd, Bangalore
@@ -592,6 +770,7 @@ JSON
         Till JS ES6 (there was no notion of classes) all we had was object/s
 
 ## Day 7
+
     1. Function
         Built-in browser Function
         Function versus methods
@@ -601,7 +780,7 @@ JSON
         Function parameters
             Call by value
             Call by reference
-        Scope of the variable 
+        Scope of the variable
             1. Global scope (window)
                 var x;
             2. Function scope
@@ -671,8 +850,8 @@ JSON
             // inside the function body
             var sum = number1 + number2;
             return sum;
-        } 
-        // generate a random number 
+        }
+        // generate a random number
 
         function random(){
             return Math.random()
@@ -685,8 +864,8 @@ JSON
         Arguments - function invocation
 
         Function inside a function
-        1. you can always call a function fromo otherr function.... 
-        2. you can define a function inside a function 
+        1. you can always call a function fromo otherr function....
+        2. you can define a function inside a function
 
     2. Event
 
@@ -697,9 +876,9 @@ JSON
             <button id="btn" onclick="changeBg();">
         3. Add/Remove Event Listners
             btn.addEventListner('click', handleClick)
-            
 
-    // 
+
+    //
     var array = [];
 
     array.push(20);
@@ -708,7 +887,7 @@ JSON
     alert()
     console.log() // method
 
-## Day  6
+## Day 6
 
     1. Conditional statements
         - if, else, nested if else
@@ -721,22 +900,22 @@ JSON
 
 // block
 {
-    // a block of code
-    var i = 20;
+// a block of code
+var i = 20;
 
     ...
     ..
+
 }
 
 if (condition){
-    // true - this block run
+// true - this block run
 }
 
-
 if (condition){
-    // true - this block runs
+// true - this block runs
 }else{
-    // false - this block of code will run
+// false - this block of code will run
 }
 
 // 1-7
@@ -749,73 +928,76 @@ if (condition){
 // Nested if else
 var day;
 if(day == 1){
-    console.log('Monday is here')
+console.log('Monday is here')
 }else if(day == 3){
-    console.log('Wednesday')
+console.log('Wednesday')
 }else if(day == 5){
-    console.log('Friday')
+console.log('Friday')
 }else{
-    console.log('some other day')
+console.log('some other day')
 }
 
 ## switch
+
 condition
 multiple cases - outcomes of the condition
 
 var day;
 switch(day){
-    // expression may return number, string, boolean
-    case 1:
-        console.log('Monday')
-        break;
-    case 2:
-        console.log('Tuesday')
-        break;
-    case 3:
-        console.log('Wednesday')
-        break;
-    case 4:
-        console.log('Thursday')
-        break;
-    case 5:
-        console.log('Friday')
-        break;
-    case 6:
-        console.log('Saturday')
-        break;
-    case 7:
-         console.log('Sunday')
-        break;
-    default:
-        console.log('Invalid day')
-}   
+// expression may return number, string, boolean
+case 1:
+console.log('Monday')
+break;
+case 2:
+console.log('Tuesday')
+break;
+case 3:
+console.log('Wednesday')
+break;
+case 4:
+console.log('Thursday')
+break;
+case 5:
+console.log('Friday')
+break;
+case 6:
+console.log('Saturday')
+break;
+case 7:
+console.log('Sunday')
+break;
+default:
+console.log('Invalid day')
+}
 
 ## Loops
+
 run some staments again and again based on certain conditions - looping
 
 for - standard for loop
 for(initializer; exit condition; final expression){
-    // block of code that runs
+// block of code that runs
 }
 
 while ()
 // initializer
 var i=0;
 while(exit condition){
-    // while block
+// while block
 
     final expression
+
 }
 
-
 do{
-    console.log('hi')
+console.log('hi')
 } while(exit condition)
 
 break;
 continue;
 
 ## Day 5
+
 Today's agenda
 
     1. Operators
@@ -823,7 +1005,7 @@ Today's agenda
         2.1. multiple ways to include js in a web page
         2.2. placeholder for javascript
             head
-            body 
+            body
             both --- very often
         2.3. order in which javascript is loaded
             main.js
@@ -832,8 +1014,8 @@ Today's agenda
     Operators
     ### Ternary operator
         (experssion) ? val1 : val2;
-    
-    ### comma 
+
+    ### comma
 
     ### unary
 
@@ -843,15 +1025,12 @@ Today's agenda
 
     ### Relational
         instanceof
-    
+
     ### precedence
 
-
 ## Day 4
-Todays agenda
-    1. Arrays
-    2. Operators
-    
+
+Todays agenda 1. Arrays 2. Operators
 
     ### Array
     A collection of elements. Elements can be of any type
@@ -875,15 +1054,15 @@ Todays agenda
          unary operators
          binary
          ternary
-    
+
     precedence of operators
 
     1 + 3 + 3 * 4 / 3 = ? based on the operator precendence
 
     Assignment operators
-    =   
+    =
 
-    a = a + 5; // a += 5; // -=, *=, /= 
+    a = a + 5; // a += 5; // -=, *=, /=
 
     &   - ??
     &&  - ??
@@ -891,8 +1070,8 @@ Todays agenda
     Comparison operators
     ==      equals to
     ===     strict equal
-    != 
-    !== 
+    !=
+    !==
 
     Arithmetic operator
     +, -, *, /, %
@@ -939,21 +1118,20 @@ Todays agenda
         + plus
 
 ## Day 3
+
 Recap -
-    statement
-    variable declaration
-        var 
-        let     - es6
-        const   - es6 
-    variable naming rules
-    best practices around naming your variables
-    keywords / reserved words in JS
+statement
+variable declaration
+var
+let - es6
+const - es6
+variable naming rules
+best practices around naming your variables
+keywords / reserved words in JS
 
-Data types?
-    1. the data  type of a variable is determined by the value it holds
-    2. you dont have to specify a data type while declaring variables
+Data types? 1. the data type of a variable is determined by the value it holds 2. you dont have to specify a data type while declaring variables
 
-Dynamically typed language ?? 
+Dynamically typed language ??
 types?? data type?
 
     1. primitive
@@ -970,14 +1148,14 @@ types?? data type?
         2. undefined
 
 String
-    " " double quotes => string literal value
-    ' ' single quotes => string literal value
-    ` ` back ticks => 
-    
-    which one to use and why ?
-    single quote vs double quote?
-    
-    Hi! I'm Manohar.
+" " double quotes => string literal value
+' ' single quotes => string literal value
+`` back ticks =>
+
+which one to use and why ?
+single quote vs double quote?
+
+Hi! I'm Manohar.
 
     var intro = "Hi! I'm Manohar."      // double quotes is what i will recommend
     var intro = 'Hi! I\'m Manohar.";    // or use the escape character
@@ -985,10 +1163,10 @@ String
     var x = 'I think it\'s going to "rain" today';
 
     var freeText = "this is some sample text";
-    
+
     // as a recommendation - use single quotes
 
-    // Hindi/ Kanadda/ Tamil / chinese 
+    // Hindi/ Kanadda/ Tamil / chinese
 
 
     var name = 'manohar';
@@ -1002,10 +1180,10 @@ String
     trim
 
 Number
-    int
-    float
+int
+float
 
-    number system ?? 
+    number system ??
     Base    Range           Name
     10      0 - 9           decial number system - this is the default number system
     8       0 - 7           octal
@@ -1020,23 +1198,21 @@ Number
     var i = 0x10; // hexadecimal
 
 Boolean
-    var x = true;
-    var y = false;
+var x = true;
+var y = false;
 
-    // booleans with string +     
-
+    // booleans with string +
 
 undefined
 
 null
 
 Array
-    an array is a collection of homogenous data types // similar
-    
+an array is a collection of homogenous data types // similar
 
 ##Today we will learn some more git commands
 
-- ```git branch``` 						- shows current branch and list of all local branches
-- ```git checkout <branch-name>```		- switch to another branch
-- ```git checkout -b <brranch-name>```	- create a new branch and switch to that
-- ```git merge <branch-name>```			- merge the branch into the current branch
+- `git branch` - shows current branch and list of all local branches
+- `git checkout <branch-name>` - switch to another branch
+- `git checkout -b <brranch-name>` - create a new branch and switch to that
+- `git merge <branch-name>` - merge the branch into the current branch
