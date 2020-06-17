@@ -1,14 +1,32 @@
 const slugify = require('slugify');
 const shortId = require('short-id');
+const MongoDbClient = require('mongodb').MongoClient;
+const url = 'mongodb://localhost:27017';
+const dbName = 'mypofo';
 let data = [];
 
 exports.list = (req, res, next) => {
   const { limit = 10, page = 1 } = req.query;
-  res.status(200).json({
-    page,
-    limit,
-    total: data.length,
-    data,
+  // 1. Establish a connection to mongodb
+  // 2. List the documents
+  // 3. Will prepare the response
+
+  MongoDbClient.connect(url, function (err, client) {
+    if (err) {
+      console.log('Error: ' + error);
+      res.status(400).json({ error: err.message });
+    } else {
+      console.log('Connected successfully to server');
+      const db = client.db(dbName);
+      const collection = db.collection('projects');
+      collection.find({}).toArray(function (err1, docs) {
+        if (err1) {
+          res.status(400).json({ error: err1.message });
+        }
+        client.close();
+        res.json({ page, limit, total: docs.length, data: docs });
+      });
+    }
   });
 };
 
@@ -18,7 +36,6 @@ exports.create = (req, res, next) => {
     throw new Error('Name is required...');
   }
   const project = {
-    id: shortId.generate(),
     name,
     tags,
     category,
@@ -26,7 +43,24 @@ exports.create = (req, res, next) => {
     coverrImage,
     slug: slugify(name).toLowerCase(),
   };
-  data.push(project);
+  // MongoDbClient.connect(url, function (err, client) {
+  //   if (err) {
+  //     console.log('Error: ' + error);
+  //     res.status(400).json({ error: err.message });
+  //   } else {
+  //     console.log('Connected successfully to server');
+  //     const db = client.db(dbName);
+  //     const collection = db.collection('projects');
+  //     collection.find({}).toArray(function (err1, docs) {
+  //       if (err1) {
+  //         res.status(400).json({ error: err1.message });
+  //       }
+  //       client.close();
+  //       res.json({ page, limit, total: docs.length, data: docs });
+  //     });
+  //   }
+  // });
+
   res.status(201).json(project);
 };
 
