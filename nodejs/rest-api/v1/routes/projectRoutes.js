@@ -10,8 +10,8 @@ const {
 
 router.get('/v1/projects', list);
 router.post('/v1/projects', create);
-router.get('/v1/projects/:id', get);
-router.put('/v1/projects/:id', update);
-router.delete('/v1/projects/:id', remove);
+router.get('/v1/projects/:slug', get);
+router.put('/v1/projects/:slug', update);
+router.delete('/v1/projects/:slug', remove);
 
 module.exports = router;

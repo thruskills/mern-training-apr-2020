@@ -8,7 +8,7 @@
 1. RDBMS (Aurora, Oracle, MySQl, Postgres, SQL Server, MariaDB, ...)
 2. NoSQL (MongoDB, Cassendra, Neo4G, ...)
 3. Data warehouse DB (Redshift, ...)
-4. In Memory DB (Redis, Memcached)
+4. In Memory DB (Redis, Memcached) - Cache
 
 ## RDBMS Vs MongoDB
 
@@ -18,6 +18,77 @@
 | Table    | Collection |
 | Row      | Document   |
 | Column   | Field      |
+
+Tables
+Emp
+Dept
+Foreign keys
+
+Documents
+It can have everything in own
+Embeded document
+
+Department
+Employees
+
+Blog
+Categories - In its own
+Tags
+Posts - Refer to a caterory
+
+Product
+Detail
+Sub docuemnt - Inventory/Stock
+
+1.  Data redundency
+    keys - id's
+    we can join with other tables
+
+    data is stored in only one place
+    not duplicating the data
+
+    Retreive - we need to read from all the relevent tables
+    JOIN (concept)
+    INNER JOIN
+    OUTER JOIN
+    SELF JOIN
+    Try to join multiple table, we have to fetch the data from multiple tables
+    Whic takes time
+    Read operations
+
+    Storge was costly
+    Optimise data - Normalization? 1NF ... 4NF
+
+2.  Data consistency
+
+    RDBMS - now also can be scale vertically...
+
+    Server 1 ---> too many requests --->
+    Scaling :
+
+    1.  You can imprrove the hardware with in the same machine (1GB -> 64GB) - Vertical scaling - RDBMS
+    2.  You can add more machines - cluster (load balancing) - Horizontal scaling - NoSQL
+
+             Server 1          Server 2
+
+    req s1
+    req s1
+
+    Server1 and server2 are they in sync?
+    Can we ensure data is consistent in both the servers?
+    Trade off - Performance - Cosistency
+
+          Server 1          Server 2
+
+    req1 s1
+    req2 s2
+
+    option1: (Eventually consistent)
+    req1 will write to server1 and send the response back
+    then internally it will sync the data in server 2
+
+    option2: (... strrongly... consistent)
+    req1 will write to server1, server2, .... serverN and send the response back
 
 How to get started with MongoDB
 
