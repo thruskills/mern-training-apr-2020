@@ -150,3 +150,37 @@ Notes!
 2. It's ob type ObjectId
 3. MongoDB internally uses JSON like syntax - BSON (what is BSON | how is it different JSON...)
 4. CRUD = Create Retreive Update Delete (CURD)
+
+## MongoDB
+
+install
+run it on mac/windows??
+connect
+(server - localhost) - remote server
+MongoDB Atlas - Managed service for MongoDB
+512 MB of storage
+Free - no cost
+
+    Steps:
+    1. We create an account (name, email...)
+    2. Pricing option (choose 1 - Free)
+    3. Create cluster
+    4. Whitelist the IP's which can connect to this server
+        1. API Server - IP of this server
+        2. Public (anywhere) - 0.0.0.0
+    5. Set username and password
+    6. Choose a connection method
+        1. Connect using shell
+            `mongo "mongodb+srv://mypofo-lfdnq.mongodb.net/<dbname>" --username admin`
+        2. Use the NodeJs app
+
+## Mongoose
+
+What is mongoose?
+It's an ODM library (Object Data Modeling)
+How do we use it?
+We map our MongoDB documents with a Mongoose Model
+
+    MongoDB             Mongoose (library)
+    Document            Model (Schema) - Object
+            <---------->
