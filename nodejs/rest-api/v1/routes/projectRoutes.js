@@ -8,10 +8,10 @@ const {
   remove,
 } = require('../controllers/projectController');
 
-router.get('/v1/projects', list);
-router.post('/v1/projects', create);
-router.get('/v1/projects/:slug', get);
-router.put('/v1/projects/:slug', update);
-router.delete('/v1/projects/:slug', remove);
+router.get('/', list);
+router.post('/', create);
+router.get('/:slug', get);
+router.put('/:slug', update);
+router.delete('/:slug', remove);
 
 module.exports = router;

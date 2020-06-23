@@ -2,13 +2,19 @@
 const express = require('express');
 const morgan = require('morgan');
 const { json } = require('express');
-const projectRoutes = require('./v1/routes/projectRoutes');
+const apiV1 = require('./v1/api');
 const port = 3000;
 
 //map reduce filter
 
 // create an express app
 const app = express();
+
+const mongoose = require('mongoose');
+const url = 'mongodb://localhost:27017/mypofo';
+
+mongoose.connect(url, { useNewUrlParser: true });
+// we will eventually add some more options
 
 // add the middleware
 app.use(express.json());
@@ -29,7 +35,7 @@ app.all('/', (req, res, next) => {
  * @param {*} res - http response object
  */
 
-app.use('/', projectRoutes);
+app.use('/v1/', apiV1);
 
 // app.use() -- to be continued
 app.use((req, res) => {

@@ -1,12 +1,5 @@
 const slugify = require('slugify');
-const shortId = require('short-id');
-const mongoose = require('mongoose');
 const Project = require('../models/Project');
-const url =
-  'mongodb+srv://admin:adminadmin@mypofo-lfdnq.mongodb.net/mypofo?retryWrites=true&w=majority';
-
-mongoose.connect(url, { useNewUrlParser: true });
-// we will eventually add some more options
 
 exports.list = (req, res, next) => {
   const { limit = 10, page = 1 } = req.query;
@@ -41,7 +34,7 @@ exports.create = (req, res, next) => {
 
   projectModel.save((err, data) => {
     if (err) {
-      res.status(400).json({ error: err1.message });
+      res.status(400).json({ error: err.message });
     } else {
       res.json(data);
     }

@@ -184,3 +184,48 @@ We map our MongoDB documents with a Mongoose Model
     MongoDB             Mongoose (library)
     Document            Model (Schema) - Object
             <---------->
+
+## Monday
+
+CRUD - operation (Mongoose)
+Image upload
+ObjectId
+Categories
+Tags
+Link (categories and tags to a project)
+
+Search - within the project
+Global search (full text)
+CORS -
+Learn to write the API doc (Swagger)
+
+(validate) -> routes -> controllers -> models -> MongoDB
+
+(Auth middleware) -> routes -> controllers -> models -> MongoDB
+
+building API? safety?
+
+multiple ways we can protect these api's
+userid/password
+...
+token
+API Key
+IP Whitelisting
+
+api key
+/signup (user)
+/signin -> token
+
+token -> access rest of my api's
+
+db.users.insertOne({
+"apiKey": "abcd1234",
+"role": "admin",
+"name": "Admin",
+"email": "admin@mypofo.com",
+"hashedPassword": "dGVzdDE=",
+"username": "admin",
+"createdAt": "2020-06-23T16:11:34.667Z",
+"updatedAt": "2020-06-23T16:11:34.667Z",
+"\_\_v": 0
+})
