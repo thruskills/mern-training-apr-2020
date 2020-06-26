@@ -2,18 +2,21 @@ const slugify = require('slugify');
 const Project = require('../models/Project');
 
 exports.list = (req, res, next) => {
+  console.log(`Request from user : ${req.user}`);
   const { limit = 10, page = 1 } = req.query;
   // 1. Establish a connection to mongodb
   // 2. List the documents
   // 3. Will prepare the response
 
-  Project.find({}, (err, data) => {
-    if (err) {
-      res.status(400).json({ error: err1.message });
-    } else {
-      res.json({ page, limit, total: data.length, data });
-    }
-  });
+  Project.find({})
+    .select('_id name slug category tags createdBy createdAt updatedAt')
+    .exec((err, data) => {
+      if (err) {
+        res.status(400).json({ error: err1.message });
+      } else {
+        res.json({ page, limit, total: data.length, data });
+      }
+    });
 };
 
 exports.create = (req, res, next) => {

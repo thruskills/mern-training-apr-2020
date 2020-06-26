@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema;
 
 const projectSchema = new mongoose.Schema(
   {
@@ -7,11 +8,26 @@ const projectSchema = new mongoose.Schema(
     description: String,
     category: String,
     tags: String,
-    coverImage: String,
+    coverImage: { data: Buffer, contentType: String },
+    category: {
+      type: ObjectId,
+      ref: 'Category',
+      required: true,
+    },
+    tags: [
+      {
+        type: ObjectId,
+        ref: 'Tag',
+        required: true,
+      },
+    ],
+    createdBy: {
+      type: ObjectId,
+      ref: 'User',
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
 module.exports = mongoose.model('Project', projectSchema);
-// name of the model is Project
-// collection name will always be plural - projects

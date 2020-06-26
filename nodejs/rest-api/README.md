@@ -229,3 +229,11 @@ db.users.insertOne({
 "updatedAt": "2020-06-23T16:11:34.667Z",
 "\_\_v": 0
 })
+
+// jwt.sign - signup /signin
+// jwt -> decode, express jwt
+// auth token - middleware, authroization
+
+// category, tags api
+// how to link category and tags to projects
+// search -

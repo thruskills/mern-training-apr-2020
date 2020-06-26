@@ -1,5 +1,6 @@
 const shortId = require('short-id');
 const User = require('../models/User');
+const jwt = require('jsonwebtoken');
 
 exports.signup = (req, res, next) => {
   const { name, email, password } = req.body;
@@ -25,6 +26,29 @@ exports.signup = (req, res, next) => {
       res.status(400).json({ error: err.message });
     } else {
       res.json(data);
+    }
+  });
+};
+
+exports.signin = (req, res, next) => {
+  const { email, password } = req.body;
+  // validate
+  if (email == '') {
+    throw new Error('Email is required...');
+  }
+  if (password == '') {
+    throw new Error('Password is required...');
+  }
+
+  const hashedPassword = Buffer.from(password).toString('base64');
+
+  User.findOne({ email, hashedPassword }, (err, user) => {
+    if (err || user == null) {
+      res.status(400).json({ error: 'Invalid user credentials' });
+    } else {
+      // create a token
+      const token = jwt.sign({ id: user._id }, 'secret');
+      res.json({ token, user });
     }
   });
 };
