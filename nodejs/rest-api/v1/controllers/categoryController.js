@@ -1,13 +1,9 @@
 const slugify = require('slugify');
-const Project = require('../models/Project');
+const Category = require('../models/Category');
 
 exports.list = (req, res, next) => {
   const { limit = 10, page = 1 } = req.query;
-  // 1. Establish a connection to mongodb
-  // 2. List the documents
-  // 3. Will prepare the sresponse
-
-  Project.find({}, (err, data) => {
+  Category.find({}, (err, data) => {
     if (err) {
       res.status(400).json({ error: err1.message });
     } else {
@@ -17,22 +13,21 @@ exports.list = (req, res, next) => {
 };
 
 exports.create = (req, res, next) => {
-  const { name, tags, category, description, coverImage } = req.body;
+  console.log(req.user._id);
+  const { name, description } = req.body;
   if (name == '') {
     throw new Error('Name is required...');
   }
-  const project = {
+  const category = {
     name,
-    tags,
-    category,
     description,
-    coverImage,
-    slug: slugify(name).toLowerCase(),
+    slug: slugify(name),
+    createdBy: req.user._id, // this is not added
   };
 
-  const projectModel = new Project(project);
+  const categoryModel = new Category(category);
 
-  projectModel.save((err, data) => {
+  categoryModel.save((err, data) => {
     if (err) {
       res.status(400).json({ error: err.message });
     } else {
@@ -46,7 +41,7 @@ exports.get = (req, res, next) => {
   const slug = req.params.slug;
   // 2. search in the data array
 
-  Project.findOne({ slug }, (err, data) => {
+  Category.findOne({ slug }, (err, data) => {
     if (err) {
       res.status(400).json({ error: err1.message });
     } else {
@@ -59,11 +54,11 @@ exports.get = (req, res, next) => {
 exports.update = (req, res, next) => {
   // 1. get the id from request (path params)
   const slug = req.params.slug;
-  const { name, description, tags, category, coverImage } = req.body;
+  const { name, email } = req.body;
   //
-  const project = { name, description, tags, category, coverImage };
+  const category = { name, email };
 
-  Project.findOneAndUpdate({ slug }, project, (err, data) => {
+  Category.findOneAndUpdate({ slug }, category, (err, data) => {
     if (err) {
       res.status(400).json({ error: err1.message });
     } else {
@@ -75,7 +70,7 @@ exports.update = (req, res, next) => {
 exports.remove = (req, res, next) => {
   // 1. get the id from request (path params)
   const slug = req.params.slug;
-  Project.findByIdAndRemove({ slug }, (err, data) => {
+  Category.findByIdAndRemove({ slug }, (err, data) => {
     if (err) {
       res.status(400).json({ error: err1.message });
     } else {
@@ -85,12 +80,3 @@ exports.remove = (req, res, next) => {
 
   // send the response with 200 OK if found else 404 Not found
 };
-
-// .populate('categories', '_id name slug')
-// .populate('tags', '_id name slug')
-// .populate('postedBy', '_id name username profile')
-// .sort({createdAt: -1})s
-// .skip(skip)
-// .limit(limit)
-// .select('_id name slug category tags createdBy createdAt updatedAt')
-// .exec((err, data) => {

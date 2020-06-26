@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const { ObjectId } = mongoose.Schema;
 const categorySchema = new mongoose.Schema(
   {
     name: {
@@ -16,6 +16,11 @@ const categorySchema = new mongoose.Schema(
     },
     description: {
       type: String,
+    },
+    createdBy: {
+      type: ObjectId,
+      ref: 'User',
+      required: true,
     },
   },
   { timestamps: true }

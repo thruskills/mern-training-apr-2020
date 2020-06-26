@@ -1,15 +1,37 @@
 const shortId = require('short-id');
 const User = require('../models/User');
-const jwt = require('jsonwebtoken');
 
-exports.signup = (req, res, next) => {
+exports.list = (req, res, next) => {
+  const { limit = 10, page = 1 } = req.query;
+  // 1. Establish a connection to mongodb
+  // 2. List the documents
+  // 3. Will prepare the sresponse
+
+  // User.find({}, (err, data) => {
+  //   if (err) {
+  //     res.status(400).json({ error: err1.message });
+  //   } else {
+  //     res.json({ page, limit, total: data.length, data });
+  //   }
+  // });
+
+  User.find({})
+    .populate('createdBy', '_id name username')
+    .select('_id name username createdBy')
+    .exec((err, data) => {
+      if (err) {
+        res.status(400).json({ error: err1.message });
+      } else {
+        res.json({ page, limit, total: data.length, data });
+      }
+    });
+};
+
+exports.create = (req, res, next) => {
+  console.log(req.user);
   const { name, email, password } = req.body;
-  // validate
-  if (email == '') {
-    throw new Error('Email is required...');
-  }
-  if (password == '') {
-    throw new Error('Password is required...');
+  if (name == '') {
+    throw new Error('Name is required...');
   }
   const user = {
     name,
@@ -17,6 +39,7 @@ exports.signup = (req, res, next) => {
     hashedPassword: Buffer.from(password).toString('base64'),
     username: shortId.generate().toLowerCase(),
     apiKey: shortId.generate(),
+    createdBy: req.user._id, // this is not added
   };
 
   const userModel = new User(user);
@@ -30,35 +53,47 @@ exports.signup = (req, res, next) => {
   });
 };
 
-exports.signin = (req, res, next) => {
-  const { email, password } = req.body;
-  // validate
-  if (email == '') {
-    throw new Error('Email is required...');
-  }
-  if (password == '') {
-    throw new Error('Password is required...');
-  }
+exports.get = (req, res, next) => {
+  // 1. get the id from request (path params)
+  const username = req.params.username;
+  // 2. search in the data array
 
-  const hashedPassword = Buffer.from(password).toString('base64');
-
-  User.findOne({ email, hashedPassword }, (err, user) => {
-    if (err || user == null) {
-      res.status(400).json({ error: 'Invalid user credentials' });
-    } else {
-      // create a token
-      const token = jwt.sign({ id: user._id }, 'secret');
-      res.json({ token, user });
-    }
-  });
-};
-
-exports.getByApiKey = (apiKey) => {
-  User.findOne({ apiKey }, (err, data) => {
+  User.findOne({ username }, (err, data) => {
     if (err) {
       res.status(400).json({ error: err1.message });
     } else {
       res.json(data);
     }
   });
+  // send the response with 200 OK if found else 404 Not found
+};
+
+exports.update = (req, res, next) => {
+  // 1. get the id from request (path params)
+  const username = req.params.username;
+  const { name, email } = req.body;
+  //
+  const user = { name, email };
+
+  User.findOneAndUpdate({ username }, user, (err, data) => {
+    if (err) {
+      res.status(400).json({ error: err1.message });
+    } else {
+      res.json(data);
+    }
+  });
+};
+
+exports.remove = (req, res, next) => {
+  // 1. get the id from request (path params)
+  const username = req.params.username;
+  User.findByIdAndRemove({ username }, (err, data) => {
+    if (err) {
+      res.status(400).json({ error: err1.message });
+    } else {
+      res.json(data);
+    }
+  });
+
+  // send the response with 200 OK if found else 404 Not found
 };

@@ -1,4 +1,11 @@
 const User = require('../models/User');
+//const jwt = require('express-jwt');
+const jwt = require('jsonwebtoken');
+
+exports.logRequest = (req, res, next) => {
+  next();
+};
+
 exports.checkApiKey = (req, res, next) => {
   // where do we get the api key
   // check req header for 'x-api-key'
@@ -39,3 +46,27 @@ exports.checkApiKey = (req, res, next) => {
   JWT (JSON Web Token )
 5. API key V/s token
 */
+
+//exports.checkToken = jwt({ secret: 'secret' });
+
+exports.validateToken = (req, res, next) => {
+  const authorization = req.headers['authorization'];
+  const token = authorization.split(' ');
+  const decoded = jwt.verify(token[1], 'secret');
+  console.log(decoded);
+  if (decoded && decoded.id) {
+    //TODO: check for the validity of the token  decoded.iat
+    User.findOne({ _id: decoded.id }, (err, data) => {
+      if (err || data == null) {
+        res.status(401).json({ error: 'Invalid user Credentials' });
+      } else {
+        // if i get the user
+        console.log(data);
+        req.user = data;
+        next();
+      }
+    });
+  } else {
+    res.status(401).json({ error: 'Invalid token' });
+  }
+};

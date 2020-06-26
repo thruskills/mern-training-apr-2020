@@ -188,11 +188,14 @@ We map our MongoDB documents with a Mongoose Model
 ## Monday
 
 CRUD - operation (Mongoose)
-Image upload
-ObjectId
+User
 Categories
 Tags
+Projects
+ObjectId
 Link (categories and tags to a project)
+
+Image upload ()
 
 Search - within the project
 Global search (full text)
