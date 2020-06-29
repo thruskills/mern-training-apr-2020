@@ -7,27 +7,33 @@ exports.list = (req, res, next) => {
   // 2. List the documents
   // 3. Will prepare the sresponse
 
-  Project.find({}, (err, data) => {
-    if (err) {
-      res.status(400).json({ error: err1.message });
-    } else {
-      res.json({ page, limit, total: data.length, data });
-    }
-  });
+  Project.find({})
+    .populate('category', '_id name slug')
+    .populate('createdBy', '_id name username')
+    .populate('tags', '_id name slug')
+    .exec((err, data) => {
+      if (err) {
+        res.status(400).json({ error: err1.message });
+      } else {
+        res.json({ page, limit, total: data.length, data });
+      }
+    });
 };
 
 exports.create = (req, res, next) => {
   const { name, tags, category, description, coverImage } = req.body;
+  const tagsArray = tags.split(',');
   if (name == '') {
     throw new Error('Name is required...');
   }
   const project = {
     name,
-    tags,
+    tags: tagsArray,
     category,
     description,
     coverImage,
     slug: slugify(name).toLowerCase(),
+    createdBy: req.user._id,
   };
 
   const projectModel = new Project(project);

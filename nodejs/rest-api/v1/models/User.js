@@ -9,10 +9,10 @@ const userSchema = new mongoose.Schema(
     role: { type: String, default: 'user' }, // default is user/admin
     username: String, // unique - randomly generate shortId
     apiKey: { type: String, required: true, index: true },
+
     createdBy: {
       type: ObjectId,
       ref: 'User',
-      required: true,
     },
   },
   { timestamps: true }

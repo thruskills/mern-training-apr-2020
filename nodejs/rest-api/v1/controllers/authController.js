@@ -3,6 +3,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
 exports.signup = (req, res, next) => {
+  console.log(req.user.id);
   const { name, email, password } = req.body;
   // validate
   if (email == '') {
@@ -17,6 +18,7 @@ exports.signup = (req, res, next) => {
     hashedPassword: Buffer.from(password).toString('base64'),
     username: shortId.generate().toLowerCase(),
     apiKey: shortId.generate(),
+    createdBy: req.user.id,
   };
 
   const userModel = new User(user);

@@ -193,13 +193,20 @@ Categories
 Tags
 Projects
 ObjectId
-Link (categories and tags to a project)
+Link (categories and tags to a project) - ObjectId, .populate
 
+Tue
 Image upload ()
 
+Wed
 Search - within the project
 Global search (full text)
-CORS -
+
+Thu
+CORS
+PM2
+
+Fri
 Learn to write the API doc (Swagger)
 
 (validate) -> routes -> controllers -> models -> MongoDB
@@ -240,3 +247,13 @@ db.users.insertOne({
 // category, tags api
 // how to link category and tags to projects
 // search -
+
+Image uploads
+
+1. Where is the image stored?
+   Server : file system
+   Database : buffer/blob
+   Storage service : S3
+
+2. Learn how to upload image
+3. Multer - very commonly used npm module

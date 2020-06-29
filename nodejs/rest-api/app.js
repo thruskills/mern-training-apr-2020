@@ -1,6 +1,8 @@
 // import express module
 const express = require('express');
 const morgan = require('morgan');
+var bodyParser = require('body-parser');
+
 const { json } = require('express');
 const apiV1 = require('./v1/api');
 const port = 3000;
@@ -16,9 +18,10 @@ const url = 'mongodb://localhost:27017/mypofo';
 mongoose.connect(url, { useNewUrlParser: true });
 // we will eventually add some more options
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // add the middleware
 app.use(express.json());
-// bodyparser
 
 app.use(morgan('dev'));
 
@@ -36,6 +39,12 @@ app.all('/', (req, res, next) => {
  */
 
 app.use('/v1/', apiV1);
+
+app.post('/upload', (req, res) => {
+  console.log('image upload');
+  console.log(req.files);
+  res.send('image upload');
+});
 
 // app.use() -- to be continued
 app.use((req, res) => {

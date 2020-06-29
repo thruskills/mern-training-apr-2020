@@ -7,20 +7,12 @@ exports.list = (req, res, next) => {
   // 2. List the documents
   // 3. Will prepare the sresponse
 
-  // User.find({}, (err, data) => {
-  //   if (err) {
-  //     res.status(400).json({ error: err1.message });
-  //   } else {
-  //     res.json({ page, limit, total: data.length, data });
-  //   }
-  // });
-
   User.find({})
     .populate('createdBy', '_id name username')
     .select('_id name username createdBy')
     .exec((err, data) => {
       if (err) {
-        res.status(400).json({ error: err1.message });
+        res.status(400).json({ error: err.message });
       } else {
         res.json({ page, limit, total: data.length, data });
       }
@@ -60,7 +52,7 @@ exports.get = (req, res, next) => {
 
   User.findOne({ username }, (err, data) => {
     if (err) {
-      res.status(400).json({ error: err1.message });
+      res.status(400).json({ error: err.message });
     } else {
       res.json(data);
     }
@@ -77,7 +69,7 @@ exports.update = (req, res, next) => {
 
   User.findOneAndUpdate({ username }, user, (err, data) => {
     if (err) {
-      res.status(400).json({ error: err1.message });
+      res.status(400).json({ error: err.message });
     } else {
       res.json(data);
     }
@@ -87,11 +79,11 @@ exports.update = (req, res, next) => {
 exports.remove = (req, res, next) => {
   // 1. get the id from request (path params)
   const username = req.params.username;
-  User.findByIdAndRemove({ username }, (err, data) => {
+  User.findOneAndDelete({ username }, (err, data) => {
     if (err) {
-      res.status(400).json({ error: err1.message });
+      res.status(400).json({ error: err.message });
     } else {
-      res.json(data);
+      res.status(200).json({ message: 'deleted' });
     }
   });
 
