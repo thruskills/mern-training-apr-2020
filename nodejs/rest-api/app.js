@@ -1,9 +1,8 @@
 // import express module
 const express = require('express');
 const morgan = require('morgan');
-var bodyParser = require('body-parser');
-
-const { json } = require('express');
+const formidable = require('formidable');
+const fs = require('fs');
 const apiV1 = require('./v1/api');
 const port = 3000;
 
@@ -13,12 +12,11 @@ const port = 3000;
 const app = express();
 
 const mongoose = require('mongoose');
+const { json } = require('body-parser');
 const url = 'mongodb://localhost:27017/mypofo';
 
 mongoose.connect(url, { useNewUrlParser: true });
 // we will eventually add some more options
-
-app.use(bodyParser.urlencoded({ extended: false }));
 
 // add the middleware
 app.use(express.json());
@@ -41,9 +39,35 @@ app.all('/', (req, res, next) => {
 app.use('/v1/', apiV1);
 
 app.post('/upload', (req, res) => {
-  console.log('image upload');
-  console.log(req.files);
-  res.send('image upload');
+  const form = formidable({ multipart: true });
+
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      res.json({ error: err.message });
+    }
+
+    // we are able to parse the form
+    // fields - any input fields you pass
+    // files - files uploaded
+
+    if (files.photo) {
+      let inputFile = files.photo.path;
+      let outputFile = __dirname + `/uploads/${files.photo.name}`;
+      console.log(inputFile, outputFile);
+
+      let rawData = fs.readFileSync(inputFile);
+
+      fs.writeFile(outputFile, rawData, (err, data) => {
+        if (err) {
+          console.log('error writing file');
+          res.json({ error: err.message });
+        } else {
+          console.log('file uploaded successfully');
+          res.json({ fields, files });
+        }
+      });
+    }
+  });
 });
 
 // app.use() -- to be continued

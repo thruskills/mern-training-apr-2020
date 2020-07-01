@@ -5,7 +5,9 @@ const projectSchema = new mongoose.Schema(
     name: { type: String, required: true, trim: true },
     slug: { type: String, required: true, unique: true, trim: true },
     description: String,
-    coverImage: { data: Buffer, contentType: String },
+    photo: { data: Buffer, contentType: String },
+
+    coverImage: {},
 
     category: {
       type: ObjectId,

@@ -197,6 +197,8 @@ Link (categories and tags to a project) - ObjectId, .populate
 
 Tue
 Image upload ()
+Formidable
+Multer
 
 Wed
 Search - within the project

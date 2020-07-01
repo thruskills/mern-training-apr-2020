@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    File upload example
+  </head>
+  <body>
+    <h1>File Upload</h1>
+    <form
+      action="http://localhost:3000/upload"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      <input type="text" name="title" placeholder="Please enter image title" />
+      <br />
+      <br />
+      <input
+        type="text"
+        name="location"
+        placeholder="Please enter image location"
+      />
+      <br />
+      <br />
+      <input type="file" name="photo" />
+      <br />
+      <br />
+      <button>Upload Image</button>
+    </form>
+  </body>
+</html>
