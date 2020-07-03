@@ -19,8 +19,6 @@ router.put('/:slug', update);
 router.delete('/:slug', remove);
 
 router.post('/createWithImage', createWithImage);
-router.get('/:slug/image', getImage);
-router.get('/:slug/photo', getPhoto);
 
 router.get('/search', searchProjects);
 

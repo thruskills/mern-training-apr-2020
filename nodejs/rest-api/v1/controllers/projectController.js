@@ -178,7 +178,9 @@ exports.getPhoto = (req, res, next) => {
       res.set({
         'Content-Type': data.photo.contentType,
       });
-      res.send(Buffer.from(data.photo.data));
+      if (data.photo.data) {
+        res.send(Buffer.from(data.photo.data));
+      }
       //res.sendFile(file);
     }
   });
@@ -192,7 +194,7 @@ exports.get = (req, res, next) => {
 
   Project.findOne({ slug }, (err, data) => {
     if (err) {
-      res.status(400).json({ error: err1.message });
+      res.status(400).json({ error: err.message });
     } else {
       res.json(data);
     }
@@ -209,7 +211,7 @@ exports.update = (req, res, next) => {
 
   Project.findOneAndUpdate({ slug }, project, (err, data) => {
     if (err) {
-      res.status(400).json({ error: err1.message });
+      res.status(400).json({ error: err.message });
     } else {
       res.json(data);
     }
@@ -219,9 +221,9 @@ exports.update = (req, res, next) => {
 exports.remove = (req, res, next) => {
   // 1. get the id from request (path params)
   const slug = req.params.slug;
-  Project.findByIdAndRemove({ slug }, (err, data) => {
+  Project.findOneAndDelete({ slug }, (err, data) => {
     if (err) {
-      res.status(400).json({ error: err1.message });
+      res.status(400).json({ error: err.message });
     } else {
       res.json(data);
     }

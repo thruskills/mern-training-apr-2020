@@ -18,7 +18,7 @@ var upload = multer({ storage });
 
 const fs = require('fs');
 const apiV1 = require('./v1/api');
-const port = 3000;
+const port = 3030;
 
 //map reduce filter
 
@@ -28,6 +28,7 @@ const app = express();
 const mongoose = require('mongoose');
 const { json } = require('body-parser');
 const url = 'mongodb://localhost:27017/mypofo';
+var cors = require('cors');
 
 mongoose.connect(url, { useNewUrlParser: true });
 // we will eventually add some more options
@@ -36,6 +37,7 @@ mongoose.connect(url, { useNewUrlParser: true });
 app.use(express.json());
 
 app.use(morgan('dev'));
+app.use(cors());
 
 // defining the routes
 app.all('/', (req, res, next) => {
@@ -103,5 +105,5 @@ app.use((err, req, res, next) => {
 
 // start the server
 app.listen(port, () => {
-  console.log('REST API Running on port 3000');
+  console.log(`REST API Running on port ${port}`);
 });

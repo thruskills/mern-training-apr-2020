@@ -203,9 +203,10 @@ Multer-s3 - extention to multer (demo)
 
 Wed
 Search - within the project
-Global search (full text)
+Global search (full text - text index)
 
 Thu
+Integrate API with react APP
 CORS
 PM2
 

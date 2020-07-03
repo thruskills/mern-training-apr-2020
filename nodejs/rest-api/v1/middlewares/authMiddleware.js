@@ -51,6 +51,9 @@ exports.checkApiKey = (req, res, next) => {
 
 exports.validateToken = (req, res, next) => {
   const authorization = req.headers['authorization'];
+  if (!authorization) {
+    res.status(401).json({ error: 'No authorization token' });
+  }
   const token = authorization.split(' ');
   const decoded = jwt.verify(token[1], 'secret');
   console.log(decoded);

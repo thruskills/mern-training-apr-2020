@@ -6,6 +6,8 @@ const tagRoutes = require('./routes/tagRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 
+const { getImage, getPhoto } = require('./controllers/projectController');
+
 const {
   logRequest,
   checkApiKey,
@@ -13,9 +15,12 @@ const {
 } = require('./middlewares/authMiddleware');
 
 router.use('/auth', logRequest, checkApiKey, authRoutes);
-router.use('/users', logRequest, validateToken, userRoutes);
-router.use('/tags', logRequest, validateToken, tagRoutes);
-router.use('/categories', logRequest, validateToken, categoryRoutes);
-router.use('/projects', logRequest, validateToken, projectRoutes);
+router.use('/users', logRequest, checkApiKey, userRoutes);
+router.use('/tags', logRequest, checkApiKey, tagRoutes);
+router.use('/categories', logRequest, checkApiKey, categoryRoutes);
+router.get('/projects/:slug/image', getImage);
+router.get('/projects/:slug/photo', getPhoto);
+
+router.use('/projects', logRequest, checkApiKey, projectRoutes);
 
 module.exports = router;
