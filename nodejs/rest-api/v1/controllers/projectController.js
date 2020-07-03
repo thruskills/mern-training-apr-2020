@@ -14,11 +14,58 @@ exports.list = (req, res, next) => {
     .populate('category', '_id name slug')
     .populate('createdBy', '_id name username')
     .populate('tags', '_id name slug')
+    .select('-photo')
     .exec((err, data) => {
       if (err) {
         res.status(400).json({ error: err.message });
       } else {
         res.json({ page, limit, total: data.length, data });
+      }
+    });
+};
+
+// exact match
+exports.search = (req, res, next) => {
+  const { limit = 10, page = 1 } = req.query;
+  const { q } = req.query;
+  console.log('query = ' + q);
+
+  // name === Image upload Project
+  // name like 'upload'
+
+  // how do we search using the embeded documents
+  // how do we search in array
+
+  Project.find({
+    $or: [
+      {
+        name: {
+          $regex: q,
+          $options: 'i',
+        },
+      },
+      {
+        description: {
+          $regex: q,
+          $options: 'i',
+        },
+      },
+    ],
+  })
+    .populate('category', '_id name slug')
+    .populate('createdBy', '_id name username')
+    .populate('tags', '_id name slug')
+    .select('-photo')
+    .exec((err, data) => {
+      if (err) {
+        res.status(400).json({ error: err.message });
+      } else {
+        res.json({
+          page,
+          limit,
+          total: data.length,
+          data,
+        });
       }
     });
 };
@@ -51,7 +98,9 @@ exports.createWithImage = (req, res, next) => {
       }
 
       const fileData = fs.readFileSync(inputFile);
-      fs.writeFileSync(outputFile + '/' + files.photo.name, fileData);
+      // fs.writeFileSync(outputFile + '/' + files.photo.name, fileData);
+      // instead of writing to fs we can push it to aws
+
       project.coverImage = {
         id: imageId,
         name: files.photo.name,
@@ -180,12 +229,28 @@ exports.remove = (req, res, next) => {
 
   // send the response with 200 OK if found else 404 Not found
 };
+exports.searchProjects = (req, res) => {
+  console.log('searchProjects...');
+  const { q } = req.query;
+  console.log(q);
 
-// .populate('categories', '_id name slug')
-// .populate('tags', '_id name slug')
-// .populate('postedBy', '_id name username profile')
-// .sort({createdAt: -1})s
-// .skip(skip)
-// .limit(limit)
-// .select('_id name slug category tags createdBy createdAt updatedAt')
-// .exec((err, data) => {
+  if (q) {
+    Project.find(
+      {
+        $or: [
+          { name: { $regex: q, $options: 'i' } },
+          { slug: { $regex: q, $options: 'i' } },
+        ],
+      },
+      (err, projects) => {
+        if (err) {
+          return res.status(400).json({
+            error: errorHandler(err),
+          });
+        }
+        console.log(`projects ${projects}`);
+        res.json(projects);
+      }
+    );
+  }
+};

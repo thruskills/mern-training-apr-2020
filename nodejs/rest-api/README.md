@@ -198,7 +198,8 @@ Link (categories and tags to a project) - ObjectId, .populate
 Tue
 Image upload ()
 Formidable
-Multer
+Multer -- we can take this
+Multer-s3 - extention to multer (demo)
 
 Wed
 Search - within the project

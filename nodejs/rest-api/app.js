@@ -2,6 +2,20 @@
 const express = require('express');
 const morgan = require('morgan');
 const formidable = require('formidable');
+var multer = require('multer');
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    //cb(null, file.fieldname + '-' + Date.now() + '.jpg');
+    cb(null, file.originalname);
+  },
+});
+
+var upload = multer({ storage });
+
 const fs = require('fs');
 const apiV1 = require('./v1/api');
 const port = 3000;
@@ -68,6 +82,13 @@ app.post('/upload', (req, res) => {
       });
     }
   });
+});
+
+app.post('/multer', upload.single('photo'), (req, res, next) => {
+  console.log('file uploaded successfully');
+  console.log(req.file);
+  console.log(req.body);
+  res.json({ status: 'success' });
 });
 
 // app.use() -- to be continued

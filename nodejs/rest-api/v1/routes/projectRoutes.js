@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {
+  search,
   list,
   create,
   get,
@@ -9,10 +10,10 @@ const {
   createWithImage,
   getImage,
   getPhoto,
+  searchProjects,
 } = require('../controllers/projectController');
 
-router.get('/', list);
-router.post('/', create);
+router.get('/find', search);
 router.get('/:slug', get);
 router.put('/:slug', update);
 router.delete('/:slug', remove);
@@ -20,5 +21,10 @@ router.delete('/:slug', remove);
 router.post('/createWithImage', createWithImage);
 router.get('/:slug/image', getImage);
 router.get('/:slug/photo', getPhoto);
+
+router.get('/search', searchProjects);
+
+router.get('/', list);
+router.post('/', create);
 
 module.exports = router;
